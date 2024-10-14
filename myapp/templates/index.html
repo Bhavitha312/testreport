@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <title>Beautiful Login Form</title>
+    <style>
+        body {
+            background: linear-gradient(135deg, #6a11cb, #2575fc);
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Arial', sans-serif;
+        }
+        .login-container {
+            max-width: 400px;
+            padding: 30px;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+        .login-container h2 {
+            text-align: center;
+            margin-bottom: 30px;
+            color: #333;
+        }
+        .form-control {
+            border-radius: 25px;
+            border: 1px solid #ced4da;
+            transition: border-color 0.3s;
+        }
+        .form-control:focus {
+            border-color: #6a11cb;
+            box-shadow: 0 0 5px rgba(106, 17, 203, 0.5);
+        }
+        .btn-primary {
+            background-color: #6a11cb;
+            border: none;
+            border-radius: 25px;
+            padding: 10px 20px;
+            transition: background-color 0.3s;
+        }
+        .btn-primary:hover {
+            background-color: #2575fc;
+        }
+        .form-check-label {
+            margin-left: 5px;
+        }
+        .forgot-password {
+            text-align: center;
+            margin-top: 20px;
+        }
+        .forgot-password a {
+            color: #6a11cb;
+            text-decoration: none;
+        }
+        .forgot-password a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+ 
+<div class="login-container">
+    <h2>Login</h2>
+    <form method="post">
+        {% csrf_token %}
+        <div class="mb-3">
+            <label for="email" class="form-label">{{form.name.label}}</label>
+            {{form.name}}
+            <!-- <input type="email" class="form-control" id="email" required> -->
+        </div>
+        <div class="mb-3">
+            <label for="password" class="form-label">{{form.password.label}}</label>
+            {{form.password}}
+            <!-- <input type="password" class="form-control" id="password" required> -->
+        </div>
+        <div class="mb-3 form-check">
+            <input type="checkbox" class="form-check-input" id="rememberMe">
+            <label class="form-check-label" for="rememberMe">Remember me</label>
+        </div>
+        <button type="submit" class="btn btn-primary w-100">Login</button>
+    </form>
+    <div class="forgot-password">
+        <a href="#">Forgot Password?</a>
+    </div>
+</div>
+ 
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
